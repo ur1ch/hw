@@ -15,10 +15,14 @@ def power_numbers(*args):
 
 
 def is_prime(number):
-    for i in range(2, int(number ** 0.5) + 1):
-        if number % i == 0:
-            return False
-    return True
+    if number <= 1:
+        return False
+    if number % 2 == 0:
+        return number == 2
+    divider = 3
+    while divider * divider <= number and number % divider != 0:
+        divider += 2
+    return divider * divider > number
 
 # filter types
 ODD = "odd"
@@ -40,9 +44,12 @@ def filter_numbers(number_list, command):
     res = []
     if command == PRIME:
         for number in number_list:
-            res.append(is_prime(number))
+            if is_prime(number) == True:
+                res.append(number)
     elif command == ODD:
         res = [number for number in number_list if number % 2 != 0]
     elif command == EVEN:
         res = [number for number in number_list if number % 2 == 0]
     return res
+
+print(filter_numbers([0,1,2,3,4,5,6,7,8,9,10,11], PRIME))
