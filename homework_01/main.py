@@ -51,5 +51,3 @@ def filter_numbers(number_list, command):
     elif command == EVEN:
         res = [number for number in number_list if number % 2 == 0]
     return res
-
-print(filter_numbers([0,1,2,3,4,5,6,7,8,9,10,11], PRIME))
