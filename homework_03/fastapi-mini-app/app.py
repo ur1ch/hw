@@ -32,7 +32,7 @@ def demo_html():
     """
 
 
-@app.get("/ping",
+@app.get("/ping/",
          responses={
              status.HTTP_200_OK: {
                  "content": {
